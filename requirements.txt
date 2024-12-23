@@ -4,5 +4,6 @@ streamlit
 numpy
 matplotlib
 html5lib
+tensorflow
 lxml
 xgboost
