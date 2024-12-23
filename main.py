@@ -8,6 +8,42 @@ from requests import get
 
 locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
+st.set_page_config(
+    page_title="E-Commerce Analysis",
+    page_icon="🛍️",
+    layout="wide",
+)
+
+# Navigasi menggunakan Markdown
+st.markdown(
+    """
+<style>
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #02ab21;
+    color: gray;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+<div>
+    <a href="/" class="nav-button">Home</a>
+    <a href="/predict" class="nav-button">Prediction</a>
+</div>
+""",
+    unsafe_allow_html=True,
+)
+
 
 @st.cache_data
 def load_data(file_path):
@@ -242,7 +278,9 @@ last_date_order = orders.order_purchase_timestamp.max()
 
 ###########################################################################
 
-st.header(f"E-Commerce Report ({first_date_order.strftime('%b %Y')} - {last_date_order.strftime('%b %Y')})")
+st.header(
+    f"E-Commerce Report ({first_date_order.strftime('%b %Y')} - {last_date_order.strftime('%b %Y')})"
+)
 
 ###########################################################################
 
