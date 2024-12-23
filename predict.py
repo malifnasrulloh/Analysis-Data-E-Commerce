@@ -72,23 +72,23 @@ if prediction_type == "Prediksi Harga Barang":
 elif prediction_type == "Prediksi Lama Pengiriman":
     st.header("Prediksi Lama Pengiriman")
     
-    seller_customer_distance_km = st.number_input("Jarak Penjual-Pembeli (km)", min_value=0.0)
-    price = st.number_input("Harga Barang (USD)", min_value=0.0)
-    freight_value = st.number_input("Nilai Ongkir (USD)", min_value=0.0)
-    product_weight_g = st.number_input("Berat Produk (gram)", min_value=0.0)
-    product_length_cm = st.number_input("Panjang Produk (cm)", min_value=0.0)
-    product_height_cm = st.number_input("Tinggi Produk (cm)", min_value=0.0)
-    product_width_cm = st.number_input("Lebar Produk (cm)", min_value=0.0)
+    deliver_seller_customer_distance_km = st.number_input("Jarak Penjual-Pembeli (km)", min_value=0.0)
+    deliver_price = st.number_input("Harga Barang (USD)", min_value=0.0)
+    deliver_freight_value = st.number_input("Nilai Ongkir (USD)", min_value=0.0)
+    deliver_product_weight_g = st.number_input("Berat Produk (gram)", min_value=0.0)
+    deliver_product_length_cm = st.number_input("Panjang Produk (cm)", min_value=0.0)
+    deliver_product_height_cm = st.number_input("Tinggi Produk (cm)", min_value=0.0)
+    deliver_product_width_cm = st.number_input("Lebar Produk (cm)", min_value=0.0)
 
     if st.button("Prediksi Lama Pengiriman"):
         input_data = np.array([[
-            seller_customer_distance_km,
-            price,
-            freight_value,
-            product_weight_g,
-            product_length_cm,
-            product_height_cm,
-            product_width_cm
+            deliver_seller_customer_distance_km,
+            deliver_price,
+            deliver_freight_value,
+            deliver_product_weight_g,
+            deliver_product_length_cm,
+            deliver_product_height_cm,
+            deliver_product_width_cm
         ]])
 
         dl_delivery_pred = dl_delivery_model.predict(input_data)[0][0]
@@ -96,5 +96,5 @@ elif prediction_type == "Prediksi Lama Pengiriman":
         xgb_delivery_pred = xgb_delivery_model.predict(dmatrix_input)[0]
 
         st.write("### Prediksi Lama Pengiriman")
-        st.write(f"- **Deep Learning Model**: {int(dl_delivery_pred)} hari")
-        st.write(f"- **XGBoost Model**: {int(xgb_delivery_pred)} hari")
+        st.write(f"- **Deep Learning Model**: {abs(int(dl_delivery_pred))} hari")
+        st.write(f"- **XGBoost Model**: {abs(int(xgb_delivery_pred))} hari")
