@@ -1,9 +1,9 @@
 pandas
 seaborn
 streamlit
-numpy==1.26.4
+numpy==2.1.3
 matplotlib
 html5lib
-tensorflow==2.17.0
+tensorflow==2.19.0
 lxml
 xgboost
