@@ -43,7 +43,7 @@ Model yang digunakan dalam proyek ini meliputi:
 - **XGBoost**: Model berbasis gradient boosting.
 
 ## Dataset
-Dataset yang digunakan memiliki atribut-atribut berikut:
+Dataset yang digunakan, berasal dari ![Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), yang memiliki atribut-atribut ~berikut :
 - `seller_customer_distance_km`: Jarak antara penjual dan pelanggan (dalam kilometer).
 - `price`: Harga produk.
 - `freight_value`: Biaya pengiriman.
